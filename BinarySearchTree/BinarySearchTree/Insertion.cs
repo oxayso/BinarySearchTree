@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-        class Program
+    class Insertion
     {
-        static void Main(string[] args)
-        {
-            Console.ReadLine();
-        }
+
     }
+  
 }
