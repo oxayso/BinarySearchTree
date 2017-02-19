@@ -6,33 +6,61 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    class Node
+   public class Node
     {
-        public int value;
+        public int contents;
         public Node leftChild;
         public Node rightChild;
-
-        public Node(int initialValue)
+        public Node(int value)
         {
-            value = initialValue;
+            contents = value;
             leftChild = null;
             rightChild = null;
         }
 
-        public class Tree
+        public void AddContents(int value)
         {
-            public Node topOfTree;
-
-            public Tree()
+            if (contents > value)
             {
-                topOfTree = null;
+                AddChildren(value);
+            }
+            else if (contents < value)
+            {
+                AddChildren(value);
             }
 
-            public Tree(int initialValue)
+        }
+
+        public void AddChildren(int value)
+        {
+            if (leftChild == null)
             {
-                topOfTree = new Node(initialValue);
+                leftChild = new Node(value);
+            }
+            else
+            {
+                leftChild.AddContents(value);
+            }
+            if (rightChild == null)
+            {
+                rightChild = new Node(value);
+            }
+            else
+            {
+                rightChild.AddContents(value);
             }
         }
+            public void DisplayTree(Node node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            DisplayTree(node.leftChild);
+
+            DisplayTree(node.rightChild);
+        }       
     }
 }
     
